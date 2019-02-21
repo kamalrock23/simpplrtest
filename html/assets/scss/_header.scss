@@ -1,0 +1,48 @@
+.menuBox {
+	white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin-bottom: 2px;
+    list-style-type: none;
+    position: relative;
+    &:after{
+		@include pseudo;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 1px;
+		width: 100%;
+		background: rgba($darkColor,0.2);
+		display: block;
+    }
+	.menuBox__item {
+		display: inline-block;
+		padding: 0 1rem;
+		&:first-child {
+			padding-left: 0;
+		}
+		&.active, &:hover {
+			.menuBox__link {
+				&:after {
+					display: block;
+				}
+			}
+		}
+	}
+	.menuBox__link {
+		padding: 0.7rem 0;
+		position: relative;
+		display: inline-block;
+		color: $darkColor;
+		&:after {
+			@include pseudo;
+			position: absolute;
+			left: 0;
+			bottom: -0px;
+			height: 2px;
+			width: 100%;
+			background: $secondaryDark;
+			display: none;
+		}
+	}
+}
